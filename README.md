@@ -1,4 +1,4 @@
-# postcss-px-flexible
+# postcss-px-scale
 px值放大/缩小n倍
 
 ## 参考

@@ -19,7 +19,6 @@ describe('test', () => {
       scale: 2,
     })).process(fixture).css;
     expect(output).is.a.string;
-    console.log(`${output}`, `${expected}`);
     expect(output).eql(expected);
   });
 });

@@ -1,12 +1,11 @@
 const postcss = require('postcss');
 const pkg = require('../package.json');
-const Flexible = require('./flexible');
+const Scale = require('./scale');
 
 module.exports = postcss.plugin(pkg.name, opts => {
   opts = opts || {};
-  return (css, result) => {
-    const flexibleIns = new Flexible(opts);
-    const output = flexibleIns.parse(css.toString());
-    result.root = postcss.parse(output);
+  return root => {
+    const scale = new Scale(opts);
+    scale.parse(root);
   }
 });
