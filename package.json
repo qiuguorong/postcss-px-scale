@@ -1,0 +1,33 @@
+{
+  "name": "postcss-px-scale",
+  "version": "1.0.0",
+  "description": "css px scale",
+  "main": "index.js",
+  "scripts": {
+    "task:lint": "eslint --fix ./src/*.js",
+    "task:mocha": "mocha",
+    "task:report": "mocha --reporter mochawesome",
+    "test": "npm run task:lint && npm run task:mocha"
+  },
+  "keywords": [
+    "px",
+    "scale",
+    "flexible",
+    "px@2x"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css": "^2.2.4",
+    "postcss": "^7.0.16"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mocha": "^6.1.4",
+    "mochawesome": "^3.1.2"
+  }
+}

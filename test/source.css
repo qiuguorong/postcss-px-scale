@@ -1,0 +1,14 @@
+body {
+  font-size: 16px;
+  color: #000;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #FFF;/*no*/
+}
+
+.box1 {
+  border: 1px solid #000;
+}
