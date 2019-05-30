@@ -2,12 +2,24 @@
   "name": "postcss-px-scale",
   "version": "1.0.0",
   "description": "css px scale",
-  "main": "index.js",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "task:lint": "eslint --fix ./src/*.js",
     "task:mocha": "mocha",
     "task:report": "mocha --reporter mochawesome",
-    "test": "npm run task:lint && npm run task:mocha"
+    "test": "npm run task:lint && npm run task:mocha",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{src}/*.{js}": [
+      "eslint --fix",
+      "prettier --write",
+      "mocha",
+      "git add"
+    ]
   },
   "keywords": [
     "px",
@@ -15,10 +27,9 @@
     "flexible",
     "px@2x"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "qgr@winbaoxian.com",
+  "license": "MIT",
   "dependencies": {
-    "css": "^2.2.4",
     "postcss": "^7.0.16"
   },
   "devDependencies": {
@@ -27,7 +38,13 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
     "mocha": "^6.1.4",
     "mochawesome": "^3.1.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 6.0.0"
   }
 }

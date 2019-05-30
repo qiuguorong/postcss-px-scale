@@ -1,7 +1,7 @@
 const fs = require('fs');
 const postcss = require('postcss');
 const { expect } = require('chai');
-const pxFlexible = require('../src/index');
+const pxScale = require('../src/index');
 
 // 读取文件内容
 function readFile(filepath) {
@@ -15,7 +15,7 @@ describe('test', () => {
   it('normal', () => {
     const fixture = readFile('test/source.css');
     const expected = readFile('test/target.css');
-    const output = postcss().use(pxFlexible({
+    const output = postcss().use(pxScale({
       scale: 2,
     })).process(fixture).css;
     expect(output).is.a.string;
