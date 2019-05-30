@@ -10,8 +10,12 @@
     "task:lint": "eslint --fix ./src/*.js",
     "task:mocha": "mocha",
     "task:report": "mocha --reporter mochawesome",
-    "test": "npm run task:lint && npm run task:mocha",
-    "precommit": "lint-staged"
+    "test": "npm run task:lint && npm run task:mocha"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "{src}/*.{js}": [
@@ -20,6 +24,12 @@
       "mocha",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all",
+    "endOfLine": "lf"
   },
   "keywords": [
     "px",
