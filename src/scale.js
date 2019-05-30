@@ -1,19 +1,19 @@
-let pxReg = null;
-let pxGlobalReg = null;
+let pxReg = null
+let pxGlobalReg = null
 
 module.exports = class Scale {
   constructor(options) {
     const defaultConfig = {
       scale: 1,
       units: 'px',
-    };
-    this.config = Object.assign({}, defaultConfig, options);
-    pxReg = new RegExp(`\\b(\\d+(\\.\\d+)?)${this.config.units}\\b`);
-    pxGlobalReg = new RegExp(pxReg.source, 'g');
+    }
+    this.config = Object.assign({}, defaultConfig, options)
+    pxReg = new RegExp(`\\b(\\d+(\\.\\d+)?)${this.config.units}\\b`)
+    pxGlobalReg = new RegExp(pxReg.source, 'g')
   }
 
   parse(root) {
-    this.processRules(root);
+    this.processRules(root)
   }
 
   processRules(root) {
@@ -34,7 +34,7 @@ module.exports = class Scale {
         if (nextDecl && nextDecl.type === 'comment') {
           const mode = nextDecl.text
           if (mode !== 'no') {
-            node.value = this.getCalcValue(node.value);
+            node.value = this.getCalcValue(node.value)
           }
         } else {
           node.value = this.getCalcValue(node.value)
@@ -44,10 +44,10 @@ module.exports = class Scale {
   }
 
   getCalcValue(value) {
-    const { scale, units } = this.config;
+    const { scale, units } = this.config
     return value.replace(pxGlobalReg, (val, num) => {
-      const number = Number(num);
-      return number === 0 ? 0 : number * scale + units;
-    });
+      const number = Number(num)
+      return number === 0 ? 0 : number * scale + units
+    })
   }
-};
+}
