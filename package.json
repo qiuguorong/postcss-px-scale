@@ -1,6 +1,6 @@
 {
   "name": "postcss-px-scale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "scale css px",
   "main": "src/index.js",
   "files": [
