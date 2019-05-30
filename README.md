@@ -62,7 +62,7 @@ gulp.task('default', function () {
 
 ### Webpack
 ```js
-const pxScale = require('postcss-adaptive')
+const pxScale = require('postcss-px-scale')
 module.exports = {
   module: {
     loaders: [
