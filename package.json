@@ -10,11 +10,12 @@
     "task:lint": "eslint --fix ./src/*.js",
     "task:mocha": "mocha",
     "task:report": "mocha --reporter mochawesome",
-    "test": "npm run task:lint && npm run task:mocha"
+    "test": "npm run task:lint && npm run task:mocha",
+    "precommit": "lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run precommit"
     }
   },
   "lint-staged": {
