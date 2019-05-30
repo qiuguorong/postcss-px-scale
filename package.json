@@ -1,7 +1,7 @@
 {
   "name": "postcss-px-scale",
   "version": "1.0.0",
-  "description": "css px scale",
+  "description": "scale css px",
   "main": "src/index.js",
   "files": [
     "src"
@@ -38,6 +38,7 @@
     "px@2x"
   ],
   "author": "qgr@winbaoxian.com",
+  "repository": "https://github.com/postcss/postcss-px-scale.git",
   "license": "MIT",
   "dependencies": {
     "postcss": "^7.0.16"
