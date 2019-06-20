@@ -33,11 +33,14 @@ after:
 ### API
 ```js
 pxScale({
-  scale: 2
+  scale: 2,
+  includes: 'bxs-ui-vue'
 })
 ```
-* `scale`: 放大/缩小倍数，默认值 `1`
-* `units`: 匹配需要放大/缩小的单位，默认值 `px`
+* `scale`: 放大/缩小倍数，默认值 `1`，类型 Number
+* `units`: 匹配需要放大/缩小的单位，默认值 `px`，类型 String
+* `includes`: 仅处理匹配到`includes`中的文件，默认值 空，类型 String|Array
+* `excludes`: 不处理匹配到`excludes`中的文件，默认值 空，类型 String|Array
 
 ### Node
 ```js

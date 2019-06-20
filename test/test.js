@@ -16,7 +16,7 @@ describe('test', () => {
     const fixture = readFile('test/source.css')
     const expected = readFile('test/target.css')
     const output = postcss().use(pxScale({
-      scale: 2,
+      scale: 2
     })).process(fixture).css
     expect(output).is.a.string
     expect(output).eql(expected)
