@@ -7,7 +7,7 @@ module.exports = class Scale {
       scale: 1,
       units: 'px',
     }
-    this.config = Object.assign({}, defaultConfig, options)
+    this.config = { ...defaultConfig, ...options}
     pxReg = new RegExp(`\\b(\\d+(\\.\\d+)?)${this.config.units}\\b`)
     pxGlobalReg = new RegExp(pxReg.source, 'g')
   }
