@@ -39,6 +39,7 @@ pxScale({
 ```
 * `scale`: 放大/缩小倍数，默认值 `1`，类型 Number
 * `units`: 匹配需要放大/缩小的单位，默认值 `px`，类型 String
+* `ignoreValue`: 需要忽略的数值，如`1px`，则配置`ignoreValue: 1`或`ignoreValue: [1]`
 * `includes`: 仅处理匹配到`includes`中的文件，默认值 空，类型 String|Array
 * `excludes`: 不处理匹配到`excludes`中的文件，默认值 空，类型 String|Array
 
@@ -47,7 +48,10 @@ pxScale({
 const postcss = require('postcss')
 const pxScale = require('postcss-px-scale')
 const input = 'body { font-size: 16px }';
-const output = postcss().use(pxScale({ scale: 2 })).process(input).css
+const output = postcss().use(pxScale({
+  scale: 2,
+  ignoreValue: [1, 2] // 忽略数值为1和2的数值缩放
+})).process(input).css
 ```
 
 ### Gulp
