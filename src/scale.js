@@ -1,14 +1,28 @@
 let pxReg = null
 let pxGlobalReg = null
 
+const defaultConfig = {
+  scale: 1, // 缩放数值
+  units: 'px', // 匹配的css单位
+  ignoreValue: [] // 需要忽略的数值，如1px，则ignoreValue: 1或ignoreValue: [1]
+}
+
+function isArray (value) {
+  return Array.isArray(value)
+}
+
+function inArray (arr, value) {
+  return arr.indexOf(value) !== -1
+}
+
 module.exports = class Scale {
   constructor(options) {
-    const defaultConfig = {
-      scale: 1,
-      units: 'px',
+    this.config = Object.assign({}, defaultConfig, options)
+    const { units, ignoreValue } = this.config
+    if (ignoreValue && !isArray(ignoreValue)) {
+      this.config.ignoreValue = [ignoreValue]
     }
-    this.config = { ...defaultConfig, ...options}
-    pxReg = new RegExp(`\\b(\\d+(\\.\\d+)?)${this.config.units}\\b`)
+    pxReg = new RegExp(`\\b(\\d+(\\.\\d+)?)${units}\\b`)
     pxGlobalReg = new RegExp(pxReg.source, 'g')
   }
 
@@ -44,10 +58,12 @@ module.exports = class Scale {
   }
 
   getCalcValue(value) {
-    const { scale, units } = this.config
+    const { scale, units, ignoreValue } = this.config
     return value.replace(pxGlobalReg, (val, num) => {
       const number = Number(num)
-      return number === 0 ? 0 : number * scale + units
+      if (!number) return val
+      if (ignoreValue && inArray(ignoreValue, number)) return val
+      return `${number * scale}${units}`
     })
   }
 }

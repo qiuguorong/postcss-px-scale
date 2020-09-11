@@ -10,7 +10,12 @@ body {
 }
 
 .box1 {
+  width: 0px;
   border: 1px solid #000;
+}
+
+.box2 {
+  border: 2px solid #000;
 }
 
 .bx-animate-fade-in {
