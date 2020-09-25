@@ -40,8 +40,8 @@
   "author": "qgr@winbaoxian.com",
   "repository": "https://github.com/qiuguorong/postcss-px-scale.git",
   "license": "MIT",
-  "dependencies": {
-    "postcss": "^7.0.30"
+  "peerDependencies": {
+    "postcss": "*"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -53,6 +53,7 @@
     "lint-staged": "^8.1.7",
     "mocha": "^7.1.2",
     "mochawesome": "^6.1.1",
+    "postcss": "^8.0.9",
     "prettier": "^2.0.5"
   },
   "engines": {

@@ -1,5 +1,6 @@
 ## postcss-px-scale
 px值放大/缩小n倍
+> 注意：该插件依赖`postcss.process(css, { from: file })` 或者使用`postcss-loader`自动注入`file`信息，请把该插件放置在`px2rem`类型的插件前执行
 
 ### Installation
 ```shell

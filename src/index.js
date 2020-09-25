@@ -11,8 +11,9 @@ function isMatch(filepath, matchs) {
 
 module.exports = postcss.plugin(pkg.name, opts => {
   opts = opts || {}
-  return root => {
-    const filepath = root.source.input.file
+  return (root, result) => {
+    // 依赖postcss.process(css, { from: file }) 或者「postcss-loader」自动注入file
+    const filepath = root.source.input.file || result.opts.from
     if (filepath && opts.excludes && isMatch(filepath, opts.excludes)) return
     if (!opts.includes || (filepath && opts.includes && isMatch(filepath, opts.includes))) {
       const scale = new Scale(opts)

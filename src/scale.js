@@ -17,7 +17,7 @@ function inArray (arr, value) {
 
 module.exports = class Scale {
   constructor(options) {
-    this.config = Object.assign({}, defaultConfig, options)
+    this.config = { ...defaultConfig, ...options}
     const { units, ignoreValue } = this.config
     if (ignoreValue && !isArray(ignoreValue)) {
       this.config.ignoreValue = [ignoreValue]
