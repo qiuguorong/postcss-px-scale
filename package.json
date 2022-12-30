@@ -51,7 +51,7 @@
     "eslint-plugin-import": "^2.20.2",
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "mochawesome": "^6.1.1",
     "postcss": "^8.0.9",
     "prettier": "^2.0.5"
